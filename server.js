@@ -17,7 +17,7 @@ const app = express();
 
 
 /* == DB connection == */
-// require('./config/db.connection');
+require('./config/db.connection');
 
 
 app.use(express.json());
