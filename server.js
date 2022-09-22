@@ -19,10 +19,12 @@ const app = express();
 /* == DB connection == */
 require('./config/db.connection');
 
-
+/* == Middleware == */
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 /* == Routes == */
+
 app.use('/users', routes.users)
 
 /* == Server Bind == */
