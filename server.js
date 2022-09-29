@@ -7,12 +7,26 @@ const express = require("express");
 const routes = require("./routes");
 
 /* == cors == */
-// const cors = require('cors');
+const cors = require("cors");
 
-// const session = require('express-session');
+const whitelist = [
+  "http://localhost:3000",
+  "https://backend-jukebox.herokuapp.com/",
+];
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+};
+
+const session = require("express-session");
 
 /* PORT */
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3003;
 
 /* == Express Instance == */
 const app = express();
@@ -21,10 +35,15 @@ const app = express();
 require("./config/db.connection");
 
 /* == Middleware == */
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 /* == Routes == */
+
+app.get("/", function (req, res) {
+  res.send("hello");
+});
 
 app.use("/users", routes.users);
 
