@@ -8,6 +8,7 @@ const bcrypt = require("bcrypt");
 
 // POST ROUTE sign up
 const signup = (req, res) => {
+  res.send("signout work");
   req.body.password = bcrypt.hashSync(
     req.body.password,
     bcrypt.genSaltSync(10)
@@ -47,7 +48,7 @@ const login = (req, res) => {
 
 //UPDATE USER
 const updateUser = (req, res) => {
-    res.send("it works")
+  res.send("it works");
   db.User.findByIdAndUpdate(
     req.params.id,
     req.body,
