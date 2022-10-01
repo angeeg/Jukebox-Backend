@@ -9,10 +9,7 @@ const routes = require("./routes");
 /* == cors == */
 const cors = require("cors");
 
-const whitelist = [
-  "http://localhost:3000",
-  "https://backend-jukebox.herokuapp.com",
-];
+const whitelist = ["http://localhost:3000", `${process.env.FRONTEND_URL}`];
 const corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1 || !origin) {
