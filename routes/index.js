@@ -1,3 +1,4 @@
 module.exports = {
-    users: require('./user.routes.js')
-}
+  users: require("./user.routes.js"),
+  Faves: require("./faves.routes.js"),
+};

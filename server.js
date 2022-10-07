@@ -42,6 +42,7 @@ app.get("/", function (req, res) {
   res.send("hello");
 });
 
+app.use("/faves", routes.Faves);
 app.use("/users", routes.users);
 
 /* == Server Bind == */
