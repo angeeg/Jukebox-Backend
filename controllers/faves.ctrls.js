@@ -23,7 +23,7 @@ const create = (req, res) => {
 //destroy a single favorite by its ID
 const destroy = (req, res) => {
   db.Faves.findByIdAndDelete(req.params.id, (error, deletedFav) => {
-    //if no Favoritesis found, let the frontend know with the json error message
+    //if no Favorites found, let the frontend know with the json error message
     if (!deletedFav)
       return res.status(400).json({ error: "Favorite not found" });
     //if an error is produced, display it

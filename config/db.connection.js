@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const connectionStr =
-  process.env.MONGODB_URI || "mongodb://localhost:27017/users";
+  process.env.MONGODB_URI || "mongodb://localhost:27017/favesDB";
 // console.log(connectionStr);
 // set up connection with the DB
 mongoose.connect(connectionStr);
